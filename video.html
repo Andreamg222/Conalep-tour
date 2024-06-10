@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8/">
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<title>TOUR CONALEP</title>
+</head>
+<body style="color:rgb(0,0,0);background-color:rbg(255,255,255);background-image:
+url(fondo.png); background-repeat: no-repeat; background-size:100% 100%;
+background-position:center 0%;">
+<div id="contenedor">
+
+    <div id="encabezado">
+        <p style="font-family:Georgia; text-align:center; font-size:80px;font-weight: bold;">TOUR CONALEP</p>
+    </div>
+
+    <nav id="menu">
+        <p style="font-family:Georgia;font-size:30px; color:#503C3C;font-weight: bold;">
+         <a href="video.html">FILOSOFÍA INSTITUCIONAL </a>&nbsp;&nbsp;&nbsp
+            &nbsp;&nbsp;&nbsp <a href="carreras.html">CARRERAS</a> &nbsp;&nbsp;&nbsp
+            &nbsp;&nbsp;&nbsp<a href="computos.html">CÓMPUTOS </a>&nbsp;&nbsp;&nbsp
+        </p>
+    </nav>
+
+    <section id="derecha">
+<center>
+<img src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13352/1/images/Conalep.png"  width="400" heigth="400">
+</center>
+        <hr>
+        <p style="font-family:Georgia; text-align:center; font-size:60px; color:#12372A;font-weight: bold;">Filosofía institucional</p>
+        <hr>
+        <center>
+        <button id="openModalBtn" style="font-family:Georgia; font-size:20px; color:#ffffff; background-color:#503C3C; border:none; padding:10px 20px; cursor:pointer; border-radius:5px;">Ver Video</button>
+  </center>
+    </section>
+
+    <aside id="izquierd1">
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="index.html">INICIO</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="inicio.html">ENTRADA</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="explanada.html">EXPLANADA</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="aula.html">MUESTRA DE AULAS</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="estacionamiento.html">ESTACIONAMIENTO</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="canchas.html">CANCHAS</a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="biblioteca.html">BIBLIOTECA </a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="cafeteria.html">CAFETERÍA </a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="lab.html">LABORATORIO DE QUÍMICA </a></p>
+        <p style="font-family:Georgia;font-size:20px; color:#503C3C;font-weight: bold;"><a href="aulat.html">MUESTRA DE AULA TIPO </a></p>
+    </aside>
+
+    <footer id="piedepag">
+        <center>
+            <h3><em>© 2024 Conalep 236 Ixtapaluca</em></h3>
+        </center>
+    </footer>
+
+    <!-- Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <video id="modalVideo" width="100%" controls autoplay>
+                <source src="filosofia.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+            <div class="modal-buttons">
+                <button id="replayBtn">Ver de nuevo</button>
+                <button id="closeModalBtn">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("videoModal");
+
+// Get the video element
+var video = document.getElementById("modalVideo");
+
+// Get the buttons
+var replayBtn = document.getElementById("replayBtn");
+var closeModalBtn = document.getElementById("closeModalBtn");
+var openModalBtn = document.getElementById("openModalBtn");
+
+// When the user clicks the close button, close the modal
+closeModalBtn.onclick = function() {
+    modal.style.display = "none";
+    video.pause(); // Pause the video when closing the modal
+}
+
+// When the user clicks the replay button, restart the video
+replayBtn.onclick = function() {
+    video.currentTime = 0;
+    video.play();
+}
+
+// When the user clicks the open button, open the modal
+openModalBtn.onclick = function() {
+    modal.style.display = "block";
+    video.currentTime = 0; // Ensure the video starts from the beginning
+    video.play();
+}
+
+// Show the modal on page load
+window.onload = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        video.pause(); // Pause the video when clicking outside the modal
+    }
+}
+</script>
+
+<style>
+/* Modal styles */
+.modal {
+    display: block; /* Show the modal by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px; /* Limit the maximum width */
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    font-family: Georgia;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #503C3C;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.modal-buttons button:hover {
+    background-color: #714747;
+}
+</style>
+
+</body>
+</html>
